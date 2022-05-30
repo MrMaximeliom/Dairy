@@ -1,19 +1,23 @@
-const getNoteModel = (sequelize, { DataTypes }) => {
-    const Note = sequelize.define('note', {
-      text: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        },
-      },
-    });
-  
-    Note.associate = (models) => {
-      Note.belongsTo(models.User);
-    };
-  
-    return Note;
-  };
-  
-  export default getNoteModel;
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class note extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  }
+  note.init({
+    text: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'note',
+  });
+  return note;
+};

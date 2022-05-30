@@ -1,0 +1,45 @@
+// user model has the following fields
+/*
+username
+password
+first_name
+last_name
+registration_date
+email
+is_active
+*/
+const getUserModel = (sequelize, { DataTypes }) => {
+    const User = sequelize.define('user', {
+      username: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
+    });
+    User.associate = (models) => {
+        User.hasMany(models.Note, { onDelete: 'CASCADE' });
+      };
+      User.findByLogin = async (login) => {
+        let user = await User.findOne({
+          where: { username: login },
+        });
+    
+        if (!user) {
+          user = await User.findOne({
+            where: { email: login },
+          });
+        }
+    
+        return user;
+      };
+    
+    
+  
+    return User;
+  };
+ 
+  
+  export default getUserModel;

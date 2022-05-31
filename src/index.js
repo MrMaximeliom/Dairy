@@ -19,6 +19,24 @@ app.get("/",(request,response)=>{
   response.send("Hello to REST API")
 }
 )
+require('../routes/auth.routes')(app);
+const Role = db.role
+function initial() {
+  Role.create({
+    id: 1,
+    name: "user"
+  });
+ 
+  Role.create({
+    id: 2,
+    name: "moderator"
+  });
+ 
+  Role.create({
+    id: 3,
+    name: "admin"
+  });
+}
 db.sequelize.sync().then(() => {
 app.listen(process.env.PORT,()=>{
     console.log(`server now is ruing on port:${process.env.PORT}`)

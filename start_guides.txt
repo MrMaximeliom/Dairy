@@ -2,6 +2,8 @@
 sequlize init
 # create new migration and table file
 sequelize model:generate --name User --attributes firstName:string,lastName:string,email:string,username:string
+
+
 # change sequelize config file params
 add databse_username,database_name,dialect_type ...etc
 # table name will be plural by default user => users in database

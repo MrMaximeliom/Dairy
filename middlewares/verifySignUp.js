@@ -1,6 +1,7 @@
 const db = require("../models");
 const ROLES = db.ROLES;
 const User = db.user;
+const Role = db.role;
 // TODO: break this function to two functions
 const checkDuplicateUsernameOrEmail = (req, res, next) => {
   // Username
@@ -45,6 +46,7 @@ const checkRolesExisted = (req, res, next) => {
   
   next();
 };
+
 const verifySignUp = {
   checkDuplicateUsernameOrEmail: checkDuplicateUsernameOrEmail,
   checkRolesExisted: checkRolesExisted

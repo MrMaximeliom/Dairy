@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import db from '../models'
-const { authJwt } = require("../middleware");
+const { authJwt } = require("../middlewares");
 
 const router = Router();
 // endpoint to get all users

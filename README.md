@@ -33,7 +33,7 @@ The project is coded using a simple and intuitive structure presented below:
    # Defines the secret key used to generate tokens
    |
    |-- controllers/
-   # Implements the conrollers that is used in each endpoint
+   # Implements the conrollers that are used in each endpoint
    |    |
    |    |-- auth.controller.js/                          
    # Implements the required controllers for sign-up and sign-in endpoints
